@@ -1,153 +1,197 @@
-# Hate Speech Detection using Hinglish & Manglish NLP
+# 🛡️ HateFree: Code-Switched Hate Speech Detection using Hinglish & Manglish
 
-## 📌 Project Overview
+## 📌 Overview
 
-Hate Speech Detection is a Natural Language Processing (NLP) based machine learning project that identifies whether a given text contains hate speech or non-hate speech content.
+HateFree is a Machine Learning-based web application that detects hate speech in **code-switched languages**, specifically **Hinglish (Hindi-English)** and **Manglish (Malayalam-English)**.
 
-The main objective of this project is to detect offensive and hateful content written in multilingual social media languages, especially **Hinglish (Hindi + English)** and **Manglish (Malayalam + English)** texts.
+The project addresses the challenge of identifying offensive and hateful content in multilingual social media conversations, where users frequently mix English with regional Indian languages.
 
-The system uses text preprocessing techniques, TF-IDF feature extraction, and a machine learning classification model to predict the category of user input.
+The application is built using **TF-IDF Vectorization**, **Logistic Regression**, and deployed with **Streamlit** for real-time prediction.
 
 ---
 
 ## 🎯 Problem Statement
 
-With the rapid growth of social media platforms, users frequently communicate using mixed languages. Traditional hate speech detection systems often fail to understand regional language combinations like Hinglish and Manglish.
+Most hate speech detection systems are designed for English text and perform poorly on code-switched languages such as Hinglish and Manglish.
 
-This project aims to build an NLP-based model that can automatically detect harmful or hateful text written in mixed-language formats.
-
----
-
-## 🚀 Features
-
-- Detects hate speech from text input
-- Supports Hinglish and Manglish language patterns
-- Text preprocessing and cleaning
-- TF-IDF based feature extraction
-- Machine learning based classification
-- Interactive Streamlit web application
-- Real-time prediction
-
----
-
-## 🛠️ Technologies Used
-
-### Programming Language
-- Python
-
-### Libraries & Frameworks
-- Streamlit
-- Pandas
-- NumPy
-- Scikit-learn
-- NLTK
-- Pickle
-
-### Machine Learning Techniques
-- Text preprocessing
-- TF-IDF Vectorization
-- Logistic Regression Classification
-
----
-
-## 📂 Project Structure
-
-```
-Hate_Speech_Detection/
-│
-├── app.py                  # Streamlit application
-├── preprocess.py           # Text preprocessing functions
-├── model.pkl               # Trained ML model
-├── vectorizer.pkl          # TF-IDF vectorizer
-├── requirements.txt        # Required libraries
-├── dataset/
-│   └── final_hinglish_manglish_dataset.csv
-│
-└── README.md
-```
-
----
-
-## 📊 Dataset Details
-
-The dataset contains multilingual social media text samples written in:
-
-- English
-- Hinglish
-- Manglish
-
-Each text sample is labelled as:
-
-- **0 → Non-Hate Speech**
-- **1 → Hate Speech**
-
-The dataset is used for training and evaluating the machine learning model.
-
----
-
-## ⚙️ Methodology
-
-### 1. Data Collection
-Collected Hinglish and Manglish text samples containing normal and hateful content.
-
-### 2. Data Preprocessing
-Performed:
-- Lowercase conversion
-- Removing unwanted characters
-- Removing extra spaces
-- Text normalization
-
-### 3. Feature Extraction
-Converted text into numerical features using:
-
-**TF-IDF (Term Frequency-Inverse Document Frequency)**
-
-### 4. Model Training
-Trained a machine learning classifier using extracted features.
-
-### 5. Prediction
-The trained model predicts whether the given input text is:
+This project aims to develop a lightweight machine learning solution capable of classifying mixed-language text into:
 
 - Hate Speech
 - Non-Hate Speech
 
 ---
 
-## 📈 Model Performance
+## ✨ Features
 
-The model was evaluated using:
-
-- Accuracy Score
-- Precision
-- Recall
-- F1-score
-- Classification Report
-
-Model performance may vary depending on dataset quality and preprocessing techniques.
+- Detects hate speech in Hinglish and Manglish text
+- Machine Learning-based prediction
+- Interactive Streamlit web application
+- TF-IDF text feature extraction
+- Logistic Regression classifier
+- Model evaluation using multiple performance metrics
+- Simple and lightweight deployment
 
 ---
 
-## 💻 Installation & Setup
+## 🛠️ Technologies Used
 
-### Step 1: Clone the repository
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- TF-IDF Vectorizer
+- Logistic Regression
+- Streamlit
+- Joblib
+- Jupyter Notebook
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_LINK
+---
+
+## 📂 Project Structure
+
+```
+Hate_Free/
+│
+├── data/
+│   ├── hinglish/
+│   │   ├── train.txt
+│   │   └── test.txt
+│   ├── manglish.xlsx
+│   └── final_dataset.csv
+│
+├── models/
+│   ├── hate_model.pkl
+│   └── hate_vectorizer.pkl
+│
+├── screenshots/
+│
+├── app.py
+├── preprocess.py
+├── train.py
+├── predict.py
+├── evaluation.ipynb
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-### Step 2: Navigate to project folder
+---
 
-```bash
-cd Hate_Speech_Detection
+## 📊 Dataset
+
+The project combines two publicly available datasets:
+
+### Hinglish Dataset
+- Mixed Hindi-English text
+- Labels mapped to binary classes
+
+### Manglish Dataset
+- Mixed Malayalam-English text
+- Binary hate speech labels
+
+Both datasets were:
+
+- Cleaned
+- Standardized
+- Label mapped
+- Merged
+- Duplicate entries removed
+
+Final Dataset Size:
+
+**15,852 Samples**
+
+---
+
+## ⚙️ Workflow
+
+```
+Dataset Collection
+        │
+        ▼
+Data Cleaning & Preprocessing
+        │
+        ▼
+Merge Hinglish + Manglish Dataset
+        │
+        ▼
+TF-IDF Feature Extraction
+        │
+        ▼
+Logistic Regression Training
+        │
+        ▼
+Model Evaluation
+        │
+        ▼
+Model Saving
+        │
+        ▼
+Prediction
+        │
+        ▼
+Streamlit Web Application
 ```
 
-### Step 3: Install dependencies
+---
+
+## 🚀 Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Move into the project folder
+
+```bash
+cd Hate_Free
+```
+
+Create virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate environment
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Run Streamlit application
+---
+
+## ▶️ Running the Project
+
+### Preprocess Dataset
+
+```bash
+python preprocess.py
+```
+
+### Train Model
+
+```bash
+python train.py
+```
+
+### Test Prediction
+
+```bash
+python predict.py
+```
+
+### Launch Streamlit App
 
 ```bash
 streamlit run app.py
@@ -155,37 +199,71 @@ streamlit run app.py
 
 ---
 
-## 🖥️ Application Usage
+## 📈 Model Evaluation
 
-1. Open the Streamlit web application.
-2. Enter any Hinglish, Manglish, or English text.
-3. Click on the prediction button.
-4. The system displays whether the text is classified as hate speech or not.
+The trained model was evaluated using a held-out test dataset.
 
----
+Evaluation includes:
 
-## 🔮 Future Enhancements
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Classification Report
+- Confusion Matrix
+- ROC Curve
+- Sample Predictions
 
-- Implement deep learning models like LSTM and Transformers
-- Support more regional languages
-- Improve accuracy with larger datasets
-- Add multilingual sentiment analysis
-- Deploy the application using cloud platforms
+The complete evaluation is available in:
 
----
-
-## 🌍 Applications
-
-- Social media monitoring
-- Online community moderation
-- Cyberbullying detection
-- Content filtering systems
-- Digital safety platforms
+```
+evaluation.ipynb
+```
 
 ---
 
-## 👩‍💻 Developed By
+## 📌 Model Used
+
+**Feature Extraction**
+
+- TF-IDF Vectorizer
+
+**Classifier**
+
+- Logistic Regression
+
+---
+
+## 📷 Application
+
+The Streamlit application allows users to:
+
+- Enter Hinglish or Manglish text
+- Detect Hate / Non-Hate speech
+- View prediction instantly
+
+---
+
+## 📚 Future Enhancements
+
+- Improve preprocessing pipeline
+- Support additional Indian code-switched languages
+- Use transformer-based models (IndicBERT, XLM-R)
+- Real-time social media moderation
+- Multi-class hate speech classification
+
+---
+
+## 👩‍💻 Author
 
 **Shahista Afreen**
 
-Hate Speech Detection using Hinglish & Manglish NLP
+Bachelor of Engineering (Computer Science & Engineering)
+
+Machine Learning | NLP | Python | Streamlit
+
+---
+
+## 📄 License
+
+This project is developed for educational and academic purposes.
